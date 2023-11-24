@@ -411,5 +411,47 @@ Untracked files:
 ```
 Siguiente ejemplo de reset. Añade y haz commit con los cambios que están pendientes.
 ```
+$ git add .
+
+$ git commit -m "cambios pendientes"
+[main 4883534] cambios pendientes
+ 1 file changed, 415 insertions(+)
+ create mode 100644 tarea2.md
+```
+Muestra los registro de commit.
+```
+$ git log --oneline
+4883534 (HEAD -> main) cambios pendientes
+23601a6 añado mi nombre
+e4436c8 Revert "commit centro"
+e09de9b commit centro
+09b2b87 Commit Bueno
+a84478c Tarea-2
+```
+Elimina por segunda vez el último commit que modificaba el archivo README.md, pero manteniendo los cambios del staged.
+```
+$ git reset --soft 4883534
+```
+Vuelve a mostrar los registros de commit para ver que el último commit ha desaparecido.
+```
+$ git log --oneline
+4883534 (HEAD -> main) cambios pendientes
+23601a6 añado mi nombre
+e4436c8 Revert "commit centro"
+e09de9b commit centro
+09b2b87 Commit Bueno
+a84478c Tarea-2
+```
+Vuelve a mostrar el estado de git para ver que los cambios ahora están en el staged.
+```
+$ git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   tarea2.md
+```
+Último ejemplo de reset. Haz commit con los cambios que están pendientes.
+```
 
 ```
